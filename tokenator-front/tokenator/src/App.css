@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.button {
+  background-color: #008CBA; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 1px 2px;
+  cursor: pointer;
+}
+
+
+.container-tag{
+  background-color: lightblue;
+  width: 10%;
+}
+
+.expiration {
+  border: 1px solid #bbbbbb;
+}
+.expiration input {
+  border: 0;
+}
+
+.getOneP{
+  float: left;
+  margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left : 100px;
+}
+.createonetoken{
+  margin-top: 80px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+  float: left
+}
+.getmanyprimary{
+  float : left;
+  margin-top: 60px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+  
+}
+.createmanytoken{
+  float : left;
+  margin-top: 60px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+}
+body
+  { 
+
+  background-color: #4dd5ec;
+  }

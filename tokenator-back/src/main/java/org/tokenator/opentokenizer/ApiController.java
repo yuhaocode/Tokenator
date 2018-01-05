@@ -63,9 +63,9 @@ public class ApiController {
     @ResponseStatus(HttpStatus.CREATED)
     public SurrogateData createPrimary(@RequestBody PrimaryData primaryData,
     		@RequestParam(value = "i", defaultValue = "10") int i) {
-	    	String sensitive = primaryData.getPan();
-	    	String token = SecurityUtility.randomPassword(i);
-	    	Date expr = primaryData.getExpr();
+    	String sensitive = primaryData.getPan();
+    	String token = SecurityUtility.randomPassword(i);
+    	Date expr = primaryData.getExpr();
     	
         System.out.println(sensitive);
         System.out.println(token);
@@ -83,15 +83,15 @@ public class ApiController {
         // Print what date is today!
         surrogateData.setTime(insertTime);
         
-	    	if(primaryDataRepo.findByPanAndExpr(primaryData.getPan(), expr )!= null){
-	    		PrimaryData primaryDataOld = primaryDataRepo.findByPanAndExpr(primaryData.getPan(), expr );
-	    		primaryDataOld.addSurrogate(surrogateData);
-	    		surrogateData.setPrimaryData(primaryDataOld);
-	    		surrogateDataRepo.save(surrogateData);
-	    		return surrogateData;
-//	    		return primaryDataOld;
-	    		
-	    	}
+    	if(primaryDataRepo.findByPanAndExpr(primaryData.getPan(), expr )!= null){
+    		PrimaryData primaryDataOld = primaryDataRepo.findByPanAndExpr(primaryData.getPan(), expr );
+    		primaryDataOld.addSurrogate(surrogateData);
+    		surrogateData.setPrimaryData(primaryDataOld);
+    		surrogateDataRepo.save(surrogateData);
+    		return surrogateData;
+//	    	return primaryDataOld;
+    		
+    	}
         
 
 	     primaryData.setPan(sensitive);
@@ -147,38 +147,7 @@ public class ApiController {
 	        	list.add(null);
 	        }
     	}
-//    	 try {
-//
-//             File f = new File("src/main/resources/data.txt");
-//
-//             BufferedReader b = new BufferedReader(new FileReader(f));
-//
-//             String readLine = "";
-//
-//             System.out.println("Reading file using Buffered Reader");
-//
-//             while ((readLine = b.readLine()) != null) {
-//                 int index = readLine.indexOf('/');
-//                 String token = readLine.substring(0, index);
-//                 String expr = readLine.substring(index + 1);
-//                 DateFormat format = new SimpleDateFormat("yyMM", Locale.ENGLISH);
-//                 Date date= format.parse(expr);  
-//                 
-//                 System.out.println(token);
-//                 System.out.println(date);
-//                 //token 
-//                 PrimaryData primary = primaryDataRepo.findBySurrogate(token, date);
-//                 if(primary != null){
-//                	 	list.add(primary);
-//                  }
-//             }
-//
-//         } catch (IOException e) {
-//             e.printStackTrace();
-//         } catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+
         return list;
     }
 	
@@ -212,6 +181,40 @@ public class ApiController {
     	}
     	return list;
 	}
+	
+//	 try {
+//
+//        File f = new File("src/main/resources/data.txt");
+//
+//        BufferedReader b = new BufferedReader(new FileReader(f));
+//
+//        String readLine = "";
+//
+//        System.out.println("Reading file using Buffered Reader");
+//
+//        while ((readLine = b.readLine()) != null) {
+//            int index = readLine.indexOf('/');
+//            String token = readLine.substring(0, index);
+//            String expr = readLine.substring(index + 1);
+//            DateFormat format = new SimpleDateFormat("yyMM", Locale.ENGLISH);
+//            Date date= format.parse(expr);  
+//            
+//            System.out.println(token);
+//            System.out.println(date);
+//            //token 
+//            PrimaryData primary = primaryDataRepo.findBySurrogate(token, date);
+//            if(primary != null){
+//           	 	list.add(primary);
+//             }
+//        }
+//
+//    } catch (IOException e) {
+//        e.printStackTrace();
+//    } catch (ParseException e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//	}
+	
 
     /*
      *  Lookup primary data by pan and yyMM expiration date.  Example:

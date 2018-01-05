@@ -241,7 +241,7 @@ public class ApiController {
     /*
      *  Delete primary entry by id.  Surrogates are deleted by cascade. Example:
      *
-     *   $ curl -X DELETE http://localhost:8080/api/v1/primaries/1
+     *   $ curl -X DELETE http://localhost:4343/api/primaries/1
      */
     @RequestMapping(
             value = "/primaries/{id}",
